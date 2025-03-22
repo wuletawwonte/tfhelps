@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative "tfhelps/version"
+require_relative "./tfhelps/version"
 
 module Tfhelps
   class Error < StandardError; end
