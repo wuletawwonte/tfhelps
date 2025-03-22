@@ -1,5 +1,10 @@
 #!/usr/bin/env ruby
 
-#require "tfhelps"
+require "tfhelps"
 
-puts "Hello there"
+if ARGV.empty?
+  puts "Usage: tfhelps <input-file.txt> [options]"
+  exit 1
+end
+
+input_file = ARGV.shift
