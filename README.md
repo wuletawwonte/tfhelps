@@ -1,38 +1,54 @@
-# Tfhelps
+# TFHelps
 
-TODO: Delete this and the text below, and describe your gem
-
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/tfhelps`. To experiment with that code, run `bin/console` for an interactive prompt.
+> TFHelps is a command-line tool designed to format text files professionally and efficiently. Built primarily for **Helps Ministries**, it uses the Gemini API to clean up and structure text based on predefined formatting guidelines. This tool is ideal for anyone looking to automate the process of making text more readable and polished.
 
 ## Installation
 
-TODO: Replace `UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG` with your gem name right after releasing it to RubyGems.org. Please do not do it earlier due to security reasons. Alternatively, replace this section with instructions to install your gem from git if you don't plan to release to RubyGems.org.
-
-Install the gem and add to the application's Gemfile by executing:
+Run this command to install the gem:
 
 ```bash
-bundle add UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
-```
-
-If bundler is not being used to manage dependencies, install the gem by executing:
-
-```bash
-gem install UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
+gem install tfhelps
 ```
 
 ## Usage
 
-TODO: Write usage instructions here
+### Prerequisites
 
-## Development
+Before using TFHelps, you need to obtain an API key from Google's AI Studio. Follow these steps:
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+1. Visit Google AI Studio and sign in with your Google account.
+2. Generate an API key (free or paid, depending on your usage needs).
+3. Store the API key in your environment variables with the key GEMINI_API_KEY.
+   Add the following line to your .bashrc, .zshrc, or equivalent shell configuration file:
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+```bash
+export GEMINI_API_KEY="your_api_key_here"
+```
+
+4. Restart your terminal or run `source ~/.bashrc` (or equivalent) to apply the changes.
+
+### Running the Tool
+
+To format a text file, use the following command:
+
+```bash
+tfhelps path/to/your/textfile.txt
+```
+
+The tool will process the file and output the formatted text to a new text file in the current directory.
+
+### Formatting Guidelines
+
+TFHelps follows these rules to format your text:
+
+1. Combine sentences into a single paragraph if they are separated by a single empty line.
+2. Create a new paragraph whenever there are two or more empty lines separating the text.
+3. Ensure proper spacing, punctuation, and capitalization throughout the text.
+4. Maintain a clean and polished format suitable for professional use.
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/tfhelps. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/tfhelps/blob/master/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at <https://github.com/wuletawwonte/tfhelps>. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/wuletawwonte/tfhelps/blob/master/CODE_OF_CONDUCT.md).
 
 ## License
 
@@ -40,4 +56,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the Tfhelps project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/tfhelps/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the Tfhelps project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/wuletawwonte/tfhelps/blob/master/CODE_OF_CONDUCT.md).
