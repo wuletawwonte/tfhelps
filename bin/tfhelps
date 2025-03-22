@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require_relative "../lib/tfhelps"
+require "tfhelps"
 
 if ARGV.empty?
   puts "Usage: tfhelps <input-file.txt> [options]"
@@ -9,6 +9,12 @@ end
 
 input_file = ARGV.shift
 api_key = ENV["GEMINI_API_KEY"]
+
+if api_key.nil?
+  puts "Please set the GEMINI_API_KEY environment variable"
+  exit 1
+end
+
 output_file = "formatted_#{File.basename(input_file)}"
 
 input_text = File.read(input_file)
