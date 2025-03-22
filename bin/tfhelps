@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 
-require "tfhelps"
+#require "tfhelps"
 
 puts "Hello there"
