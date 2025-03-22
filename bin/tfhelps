@@ -8,3 +8,16 @@ if ARGV.empty?
 end
 
 input_file = ARGV.shift
+api_key = ENV["GEMINI_API_KEY"]
+output_file = "formatted_#{File.basename(input_file)}"
+
+input_text = File.read(input_file)
+
+formatted_text = Tfhelps.format(input_text, api_key)
+
+if formatted_text
+  File.write(output_file, formatted_text)
+  puts "Formatted text written to #{output_file}"
+else
+  puts "Failed to format text"
+end

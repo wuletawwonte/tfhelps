@@ -10,7 +10,6 @@ module Tfhelps
 
   class GeminiClient
     def initialize(api_key)
-      @api_key = api_key
       @url = URI.parse("https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=#{api_key}")
     end
 
