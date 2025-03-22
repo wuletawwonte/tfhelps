@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require "tfhelps"
+require_relative "../lib/tfhelps"
 
 if ARGV.empty?
   puts "Usage: tfhelps <input-file.txt> [options]"

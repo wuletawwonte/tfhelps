@@ -14,15 +14,37 @@ module Tfhelps
     end
 
     def format_text(text)
-      prompt = "Format the following text in a professional and readable way:\n\n#{text}"
+      prompt = <<~PRO
+        Format the following text into a professional and readable structure.
+          Follow these guidelines:
+          1. Combine sentences into a single paragraph if they are separated by a single empty line.
+          2. Create a new paragraph whenever there are two or more empty lines separating the text.
+          3. Ensure proper spacing, punctuation, and capitalization throughout the text.
+          4. Maintain a clean and polished format suitable for professional use.
+          5. Do not add a title or any additional text content that is not present in the original text.
+
+          Text to format:
+          #{text}
+      PRO
 
       http = Net::HTTP.new(@url.host, @url.port)
       http.use_ssl = true
-      request = Net::HTTP::Post.new(@url.path, { "Content-Type" => "application/json" })
+      request = Net::HTTP::Post.new(@url.request_uri)
+      request.content_type = "application/json"
 
-      response = http.request(request, { "prompt" => prompt }.to_json)
+      payload = {
+        contents: [{
+          parts: [{
+            text: prompt
+          }]
+        }]
+      }.to_json
 
-      return JSON.parse(response.body)["content"] if response.code == "200"
+      request.body = payload
+
+      response = http.request(request)
+
+      return JSON.parse(response.body)["candidates"][0]["content"]["parts"][0]["text"] if response.is_a?(Net::HTTPOK)
 
       raise Error, "Failed to format text: #{response.code} - #{response.body}"
     end
