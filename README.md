@@ -1,5 +1,5 @@
 # TFHelps
-
+[![Gem Version](https://badge.fury.io/rb/tfhelps.svg)](https://badge.fury.io/rb/tfhelps)
 > TFHelps is a command-line tool designed to format text files professionally and efficiently. Built primarily for **Helps Ministries**, it uses the Gemini API to clean up and structure text based on predefined formatting guidelines. This tool is ideal for anyone looking to automate the process of making text more readable and polished.
 
 ## Installation
@@ -18,8 +18,7 @@ Before using TFHelps, you need to obtain an API key from Google's AI Studio. Fol
 
 1. Visit Google AI Studio and sign in with your Google account.
 2. Generate an API key (free or paid, depending on your usage needs).
-3. Store the API key in your environment variables with the key GEMINI_API_KEY.
-   Add the following line to your .bashrc, .zshrc, or equivalent shell configuration file:
+3. Store the API key in your environment variables with the key GEMINI_API_KEY. To achieve that, add the following line to your .bashrc, .zshrc, or equivalent shell configuration file:
 
 ```bash
 export GEMINI_API_KEY="your_api_key_here"
