@@ -21,7 +21,8 @@ module Tfhelps
           2. Create a new paragraph whenever there are two or more empty lines separating the text.
           3. Ensure proper spacing, punctuation, and capitalization throughout the text.
           4. Maintain a clean and polished format suitable for professional use.
-          5. Do not add a title or any additional text content that is not present in the original text.
+          5. Replace all curved (smart) double quotation marks (e.g., “ ”) with straight (normal) double quotation marks (").
+          6. Do not add a title or any additional text content that is not present in the original text.
 
           Text to format:
           #{text}
