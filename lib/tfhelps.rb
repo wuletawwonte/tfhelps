@@ -23,7 +23,8 @@ module Tfhelps
           4. Maintain a clean and polished format suitable for professional use.
           5. Replace all curved (smart) double quotation marks (e.g., “ ”) with straight (normal) double quotation marks (").
           6. Convert double em dashes (—) to a colon (:).
-          7. Do not add a title or any additional text content that is not present in the original text.
+          7. Convert curved single quote (’) to a straight single quote (').
+          8. Do not add a title or any additional text content that is not present in the original text.
 
           Text to format:
           #{text}
