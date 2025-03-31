@@ -16,18 +16,18 @@ module Tfhelps
     def format_text(text)
       prompt = <<~PRO
         Format the following text into a professional and readable structure.
-          Follow these guidelines:
-          1. Combine sentences into a single paragraph if they are separated by a single empty line.
-          2. Create a new paragraph whenever there are two or more empty lines separating the text.
-          3. Ensure proper spacing, punctuation, and capitalization throughout the text.
-          4. Maintain a clean and polished format suitable for professional use.
-          5. Replace all curved (smart) double quotation marks (e.g., “ ”) with straight (normal) double quotation marks (").
-          6. Convert double em dashes (—) or double em dashes (– –) to a colon (:).
-          7. Convert curved single quote (’) to a straight single quote (').
-          8. Do not add a title or any additional text content that is not present in the original text.
+        Follow these guidelines:
+        1. Combine sentences into a single paragraph if they are separated by a single empty line.
+        2. Create a new paragraph whenever there are two or more empty lines separating the text.
+        3. Ensure proper spacing, punctuation, and capitalization throughout the text.
+        4. Replace all curved (smart) double quotation marks (e.g., “ ”) with straight (normal) double quotation marks (").
+        5. Convert curved single quote (’) to a straight single quote (').
+        6. Convert double em dashes (—) or double em dashes (– –) to a colon (:).
+        7. Do not modify underscores(_); leave them as is.
+        8. Do not add a title or any additional text content that is not present in the original text.
 
-          Text to format:
-          #{text}
+        Text to format:
+        #{text}
       PRO
 
       http = Net::HTTP.new(@url.host, @url.port)
