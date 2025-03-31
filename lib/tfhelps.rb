@@ -22,9 +22,10 @@ module Tfhelps
         3. Ensure proper spacing, punctuation, and capitalization throughout the text.
         4. Replace all curved (smart) double quotation marks (e.g., “ ”) with straight (normal) double quotation marks (").
         5. Convert curved single quote (’) to a straight single quote (').
-        6. Convert double em dashes (—) or double em dashes (– –) to a colon (:).
+        6. Convert double hyphens (--), spaced double hyphens (- -), double em dashes (——), or spaced double em dashes (— —) into a single em dash (—). Apply this only if they don’t appear at the start of a new line. Remove any surrounding spaces before or after the dash.
         7. Do not modify underscores(_); leave them as is.
         8. Do not add a title or any additional text content that is not present in the original text.
+        9. Transform any new line that begins with one or two hyphen characters (- or --) into a standardized bullet point format.
 
         Text to format:
         #{text}
