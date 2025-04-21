@@ -8,7 +8,7 @@ if ARGV.empty?
   exit 1
 end
 
-input_file = ARGV.shift
+input_path = ARGV.shift
 api_key = ENV["GEMINI_API_KEY"]
 
 if api_key.nil?
@@ -16,15 +16,52 @@ if api_key.nil?
   exit 1
 end
 
-output_file = "formatted_#{File.basename(input_file)}"
+output_dir = "output"
+if ARGV.include?("--output-dir")
+  index = ARGV.index("--output-dir")
+  output_dir = ARGV[index + 1]
+  ARGV.delete_at(index)
+  ARGV.delete_at(index)
+end
 
-input_text = File.read(input_file)
+def process_file(input_file, output_file, api_key)
+  input_text = File.read(input_file)
+  formatted_text = Tfhelps.format(input_text, api_key)
 
-formatted_text = Tfhelps.format(input_text, api_key)
+  if formatted_text
+    File.write(output_file, formatted_text)
+    puts "Formatted text written to #{output_file}"
+    true
+  else
+    puts "Failed to format #{input_file}"
+    false
+  end
+end
 
-if formatted_text
-  File.write(output_file, formatted_text)
-  puts "Formatted text written to #{output_file}"
+if File.directory?(input_path)
+  Dir.mkdir(output_dir) unless Dir.exist?(output_dir)
+
+  txt_files = Dir.glob(File.join(input_path, "*.txt"))
+
+  if txt_files.empty?
+    puts "No .txt files found in #{input_path}"
+    exit 1
+  end
+
+  puts "Processing #{txt_files.size} .txt files..."
+
+  txt_files.each do |input_file|
+    output_file = File.join(output_dir, File.basename(input_file))
+    process_file(input_file, output_file, api_key)
+  end
+
+  puts "All files processed. Output saved in #{output_dir}/"
 else
-  puts "Failed to format text"
+  unless File.exist?(input_file)
+    puts "Input file does not exist: #{input_file}"
+    exit 1
+  end
+
+  output_file = File.basename(input_path)
+  process_file(input_path, output_file, api_key)
 end
