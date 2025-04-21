@@ -28,14 +28,23 @@ export GEMINI_API_KEY="your_api_key_here"
 
 ### Running the Tool
 
-To format a text file, use the following command:
-
+Process a single text file:
 ```bash
 tfhelps path/to/your/textfile.txt
 ```
+**Output:** Overwrites textfile.txt with the formatted content
 
-The tool will process the file and output the formatted text to a new text file in the current directory.
+Process all .txt files in a directory:
 
+```bash
+tfhelps path/to/your/text_files/
+```
+Creates an `output/` directory with formatted versions of all files
+
+Custom output directory (optional):
+```bash
+tfhelps path/to/files/ --output-dir custom_output
+```
 ### Formatting Guidelines
 
 TFHelps follows these rules to format your text:
